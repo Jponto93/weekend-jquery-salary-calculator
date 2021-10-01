@@ -94,4 +94,4 @@ function calculateMonthly() {
     totalMonthly = (totalMonthly / 12);
     console.log(totalMonthly);
     
-} // end calculateMonthly
+} // end calculateMonthly 
