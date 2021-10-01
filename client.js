@@ -3,6 +3,7 @@ console.log('JS');
 $(readyNow);
 
 let employeeList = [];
+let totalMonthly = 0;
 
 function readyNow() {
     console.log('JQ');
@@ -39,6 +40,7 @@ function submitEmployee() {
 
         //append to dom
         render();
+        calculateMonthly();
 
         //clear inputs
         $('#firstIn').val('');
@@ -83,3 +85,13 @@ function render() {
     } // end for loop
 
 } // end render
+
+function calculateMonthly() {
+    totalMonthly = 0;
+    for (let employee of employeeList){
+        totalMonthly += Number(employee.annualSalary);
+    } // end for loop 
+    totalMonthly = (totalMonthly / 12);
+    console.log(totalMonthly);
+    
+} // end calculateMonthly
