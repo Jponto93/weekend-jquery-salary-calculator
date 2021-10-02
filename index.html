@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="jquery-3.6.0.min.js"></script>
-        <script src="client.js"></script>
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
-        <title>Weekend 1 Project</title>
-    </head>
-    <body>
-        <h1>Salary Calculator</h1>
 
-        <h2>Add Employee</h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Weekend 1 Project</title>
+</head>
 
-        <div class="displayblock right">
+<body id="">
+    <div class="container">
+    <h1>Salary Calculator</h1>
+
+      
+        <h2 id="addEmployee">Add Employee</h2>
+
+        <div class="displayblock">
             <input type="text" placeholder="First Name" id="firstIn">
             <input type="text" placeholder="Last Name" id="lastIn">
             <input type="number" placeholder="ID" id="idIn">
@@ -25,31 +29,41 @@
             <input type="number" placeholder="Annual Salary" id="salaryIn">
         </div>
 
-        <div class="displayblock right">
-            <button class="" id="submitEmployee">Submit</button>
-        </div>  
-        <h2>Employees</h2>
-        <table class="table">
-           <thead>
-               <tr>
-                   <th>First Name</th>
-                   <th>Last Name</th>
-                   <th>ID</th>
-                   <th>Title</th>
-                   <th>Annual Salary</th>
-                   <th></th>
-               </tr>
-           </thead>
-           <tbody class ="table-hover" class ="table-striped" id="employeeRows"></tbody>
-           <!-- JQ will should append rows here -->
+        <div>
+            <button class="btn btn-dark" id="submitEmployee">Submit</button>
+        </div>
+
+
+        <h2 id="employees">Employees</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-hover" class="table-striped" id="employeeRows"></tbody>
+            <!-- JQ will should append rows here -->
         </table>
         <div id="monthlyDisplay"></div>
+        </div>
+    </div>
+
+    </div>
+    
+
+</div> 
+<!-- container div -->
 
 
 
 
-        
-        
-        <script src="" async defer></script>
-    </body>
+
+    <script src="" async defer></script>
+</body>
+
 </html>

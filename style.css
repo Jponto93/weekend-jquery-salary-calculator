@@ -1,12 +1,8 @@
-h1 {
-    text-align: center;
-}
-
-.displayblock {
-    display: block;
-}
-
 .warning {
-    color: red;
+    background-color:#fc5d5d;
 }
 
+#submitEmployee {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

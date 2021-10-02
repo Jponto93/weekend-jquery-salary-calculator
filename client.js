@@ -77,7 +77,7 @@ function render() {
         <td>${employee.id}</td>
         <td>${employee.title}</td>
         <td>${employee.annualSalary}</td>
-        <td><button id="deleteButton">Delete</button></td>
+        <td><button class="btn btn-dark"id="deleteButton">Delete</button></td>
     </tr>
     `);
        
@@ -86,7 +86,7 @@ function render() {
     } // end for loop
 
      // monthly expense display
-    let monthlyExpense = $(`<p>${totalMonthly}</p>`)
+    let monthlyExpense = $(`<p class="displayBlock">Total Monthly: $${Math.round(totalMonthly)}</p>`)
 
     if (totalMonthly > 20000){
         $('#monthlyDisplay').addClass('warning')
