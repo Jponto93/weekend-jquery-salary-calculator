@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="jquery-3.6.0.min.js"></script>
         <script src="client.js"></script>
+        <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
         <title>Weekend 1 Project</title>
     </head>
@@ -15,15 +16,20 @@
         <h1>Salary Calculator</h1>
 
         <h2>Add Employee</h2>
-        <input type="text" placeholder="First Name" id="firstIn">
-        <input type="text" placeholder="Last Name" id="lastIn">
-        <input type="number" placeholder="ID" id="idIn">
-        <input type="text" placeholder="Title" id="titleIn">
-        <input type="number" placeholder="Annual Salary" id="salaryIn">
-        <button id="submitEmployee">Submit</button>
 
+        <div class="displayblock right">
+            <input type="text" placeholder="First Name" id="firstIn">
+            <input type="text" placeholder="Last Name" id="lastIn">
+            <input type="number" placeholder="ID" id="idIn">
+            <input type="text" placeholder="Title" id="titleIn">
+            <input type="number" placeholder="Annual Salary" id="salaryIn">
+        </div>
+
+        <div class="displayblock right">
+            <button class="" id="submitEmployee">Submit</button>
+        </div>  
         <h2>Employees</h2>
-        <table>
+        <table class="table">
            <thead>
                <tr>
                    <th>First Name</th>
@@ -34,7 +40,7 @@
                    <th></th>
                </tr>
            </thead>
-           <tbody id="employeeRows"></tbody>
+           <tbody class ="table-hover" class ="table-striped" id="employeeRows"></tbody>
            <!-- JQ will should append rows here -->
         </table>
         <div id="monthlyDisplay"></div>

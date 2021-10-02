@@ -87,7 +87,13 @@ function render() {
 
      // monthly expense display
     let monthlyExpense = $(`<p>${totalMonthly}</p>`)
-    $('#monthlyDisplay').append(monthlyExpense);
+
+    if (totalMonthly > 20000){
+        $('#monthlyDisplay').addClass('warning')
+        $('#monthlyDisplay').append(monthlyExpense);
+    } else {
+        $('#monthlyDisplay').append(monthlyExpense);
+    }
 
 } // end render
 
