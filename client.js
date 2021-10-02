@@ -10,6 +10,7 @@ function readyNow() {
 
     // CLICK EVENTS
     $('#submitEmployee').on('click', submitEmployee)
+    $('#employeeRows').on('click', 'tr', deleteEmployee)
 
 } // end readyNow
 
@@ -100,3 +101,9 @@ function calculateMonthly() {
     return totalMonthly;
     
 } // end calculateMonthly 
+
+function deleteEmployee () {
+    console.log('inside delete employee');
+    $(this).remove();
+    
+} // end deleteEmployee
