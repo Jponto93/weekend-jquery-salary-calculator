@@ -39,8 +39,9 @@ function submitEmployee() {
         console.log(employeeList);
 
         //append to dom
-        render();
         calculateMonthly();
+        render();
+        
 
         //clear inputs
         $('#firstIn').val('');
@@ -62,6 +63,7 @@ function render() {
     console.log('in render');
     //empty rows
     $('#employeeRows').empty();
+    $('#monthlyDisplay').empty();
     // loop to append all employees from list
     for (let employee of employeeList) {
 
@@ -77,12 +79,14 @@ function render() {
         <td><button id="deleteButton">Delete</button></td>
     </tr>
     `);
-    
-   
-
-        $('#employeeRows').append(row)
+       
+        $('#employeeRows').append(row);
 
     } // end for loop
+
+     // monthly expense display
+    let monthlyExpense = $(`<p>${totalMonthly}</p>`)
+    $('#monthlyDisplay').append(monthlyExpense);
 
 } // end render
 
@@ -93,5 +97,6 @@ function calculateMonthly() {
     } // end for loop 
     totalMonthly = (totalMonthly / 12);
     console.log(totalMonthly);
+    return totalMonthly;
     
 } // end calculateMonthly 
