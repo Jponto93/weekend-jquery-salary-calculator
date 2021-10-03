@@ -4,6 +4,10 @@ $(readyNow);
 
 let employeeList = [];
 let totalMonthly = 0;
+let salaryList = [];
+let index = 0;
+let deleteSalary = $(`s${index}`)
+
 
 function readyNow() {
     console.log('JQ');
@@ -37,12 +41,14 @@ function submitEmployee() {
 
         //push new employee to list
         employeeList.push(newEmployee);
+        salaryList.push(newEmployee.annualSalary)
+        console.log(salaryList);
         console.log(employeeList);
 
         //append to dom
         calculateMonthly();
         render();
-        
+
 
         //clear inputs
         $('#firstIn').val('');
@@ -68,32 +74,33 @@ function render() {
     // loop to append all employees from list
     for (let employee of employeeList) {
 
-
         // created row to append using employee object
+        
         let row = $(`
     <tr>
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
         <td>${employee.title}</td>
-        <td>${formatSalary(employee.annualSalary)}</td>
+        <td id="s${index}">${formatSalary(employee.annualSalary)}</td>
         <td><button class="btn btn-dark"id="deleteButton">Delete</button></td>
     </tr>
     `);
-       
+
         $('#employeeRows').append(row);
+        
+       index ++;
+       console.log(`<td id=s${index}</p>`);
 
     } // end for loop
 
-
-    //currency test 
+    index = 0;
     
 
-
-     // monthly expense display
+    // monthly expense display
     let monthlyExpense = $(`<p class="displayBlock">Total Monthly: ${formatSalary(totalMonthly)}</p>`)
 
-    if (totalMonthly > 20000){
+    if (totalMonthly > 20000) {
         $('#monthlyDisplay').addClass('warning')
         $('#monthlyDisplay').append(monthlyExpense);
     } else {
@@ -104,29 +111,31 @@ function render() {
 
 function calculateMonthly() {
     totalMonthly = 0;
-    for (let employee of employeeList){
+    for (let employee of employeeList) {
         totalMonthly += Number(employee.annualSalary);
     } // end for loop 
     totalMonthly = (totalMonthly / 12);
     console.log(totalMonthly);
     return totalMonthly;
-    
+
 } // end calculateMonthly 
 
-function deleteEmployee () {
+function deleteEmployee() {
     console.log('inside delete employee');
-    // remove employees salary from total monthly
-    
-    // delete employee from table
-    // $(this).remove();
-    
+
+    $(this).closest('tr').remove();
+
+
 } // end deleteEmployee
 
 function formatSalary(number) {
     return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0,
     }).format(number);
-  } // end formatCurrency
+} // end formatCurrency
+
+
+
 
