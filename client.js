@@ -76,7 +76,7 @@ function render() {
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
         <td>${employee.title}</td>
-        <td>${employee.annualSalary}</td>
+        <td>${formatSalary(employee.annualSalary)}</td>
         <td><button class="btn btn-dark"id="deleteButton">Delete</button></td>
     </tr>
     `);
@@ -85,8 +85,13 @@ function render() {
 
     } // end for loop
 
+
+    //currency test 
+    
+
+
      // monthly expense display
-    let monthlyExpense = $(`<p class="displayBlock">Total Monthly: $${Math.round(totalMonthly)}</p>`)
+    let monthlyExpense = $(`<p class="displayBlock">Total Monthly: ${formatSalary(totalMonthly)}</p>`)
 
     if (totalMonthly > 20000){
         $('#monthlyDisplay').addClass('warning')
@@ -110,6 +115,18 @@ function calculateMonthly() {
 
 function deleteEmployee () {
     console.log('inside delete employee');
-    $(this).remove();
+    // remove employees salary from total monthly
+    
+    // delete employee from table
+    // $(this).remove();
     
 } // end deleteEmployee
+
+function formatSalary(number) {
+    return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+    }).format(number);
+  } // end formatCurrency
+
