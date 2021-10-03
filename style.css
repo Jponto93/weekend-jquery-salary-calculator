@@ -7,3 +7,14 @@
     margin-bottom: 10px;
 }
 
+body {
+    background-color: #dbdbdb;
+}
+
+h1 {
+    text-align: center;
+}
+
+#mainBorder {
+    padding: 10px;
+}
