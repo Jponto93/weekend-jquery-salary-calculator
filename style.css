@@ -18,3 +18,16 @@ h1 {
 #mainBorder {
     padding: 10px;
 }
+
+#alignRight {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 22px;
+}
+
+outsideColor {
+    background-color: rgb(175, 59, 221);
+}
+button {
+    
+}

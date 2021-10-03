@@ -5,17 +5,12 @@ $(readyNow);
 let employeeList = [];
 let totalMonthly = 0;
 let salaryList = [];
-let index = 0;
-let deleteSalary = $(`s${index}`)
-
 
 function readyNow() {
     console.log('JQ');
-
     // CLICK EVENTS
     $('#submitEmployee').on('click', submitEmployee)
     $('#employeeRows').on('click', 'tr', deleteEmployee)
-
 } // end readyNow
 
 function submitEmployee() {
@@ -27,7 +22,6 @@ function submitEmployee() {
     const title = $('#titleIn').val();          //getting title input
     const annualSalary = $('#salaryIn').val();  //getting annual salary input
 
-
     if (firstName && lastName && id && title && annualSalary) { // if all inputs are true
 
         //Create new employee object
@@ -38,32 +32,24 @@ function submitEmployee() {
             title: title,
             annualSalary: annualSalary
         } // end if
-
         //push new employee to list
         employeeList.push(newEmployee);
         salaryList.push(newEmployee.annualSalary)
         console.log(salaryList);
         console.log(employeeList);
-
         //append to dom
         calculateMonthly();
         render();
-
-
         //clear inputs
         $('#firstIn').val('');
         $('#lastIn').val('');
         $('#idIn').val('');
         $('#titleIn').val('');
         $('#salaryIn').val('');
-
     } else {   // inputs empty
         console.log('Input missing!');
-
         alert('Input missing!');
-
     }
-
 } // submitEmployee
 
 function render() {
@@ -73,30 +59,20 @@ function render() {
     $('#monthlyDisplay').empty();
     // loop to append all employees from list
     for (let employee of employeeList) {
-
         // created row to append using employee object
-        
         let row = $(`
     <tr>
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
         <td>${employee.title}</td>
-        <td id="s${index}">${formatSalary(employee.annualSalary)}</td>
-        <td><button class="btn btn-dark"id="deleteButton">Delete</button></td>
+        <td>${formatSalary(employee.annualSalary)}</td>
+        <td><button class="btn btn-dark" id="deleteButton">Delete</button></td>
     </tr>
     `);
-
+        // append row
         $('#employeeRows').append(row);
-        
-       index ++;
-       console.log(`<td id=s${index}</p>`);
-
     } // end for loop
-
-    index = 0;
-    
-
     // monthly expense display
     let monthlyExpense = $(`<p class="displayBlock">Total Monthly: ${formatSalary(totalMonthly)}</p>`)
 
@@ -106,7 +82,6 @@ function render() {
     } else {
         $('#monthlyDisplay').append(monthlyExpense);
     }
-
 } // end render
 
 function calculateMonthly() {
@@ -122,10 +97,7 @@ function calculateMonthly() {
 
 function deleteEmployee() {
     console.log('inside delete employee');
-
     $(this).closest('tr').remove();
-
-
 } // end deleteEmployee
 
 function formatSalary(number) {
